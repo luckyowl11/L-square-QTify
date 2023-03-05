@@ -10,7 +10,7 @@ function Navbar() {
     <div className={styles.navbar}>
       <Logo />
       <div className={styles.search_bar}>
-        <InputsField />
+        <InputsField placeholder={"Search a song of your choice"} />
         <Button other className={styles["search-btn"]}>
           <FaSearch />
         </Button>
