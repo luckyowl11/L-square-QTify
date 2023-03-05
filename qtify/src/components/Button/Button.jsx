@@ -9,9 +9,7 @@ function Button({ children, primary, secondary, other, ...props }) {
   else variant = "other";
 
   return (
-    <buttton className={`btn ${variant} ${props.className}`}>
-      {children}
-    </buttton>
+    <button className={`btn ${variant} ${props.className}`}>{children}</button>
   );
 }
 
