@@ -14,13 +14,13 @@ export const Cards = ({ cardData }) => {
   if (!cardData) cardData = defaultCard();
 
   return (
-    <div className={styles.card}>
+    <div id={cardData.id} className={styles.card}>
       <div className={styles.cardContent}>
-        <img className={styles.cardImg} src={cardData.img} alt="card_pic" />
+        <img className={styles.cardImg} src={cardData.image} alt="card_pic" />
         <div className={styles.albumFollowers}>
-          <p
-            className={styles.aFollo_Text}
-          >{`${cardData.followers} Follows`}</p>
+          <p className={styles.aFollo_Text}>{`${(
+            Number(cardData.follows) / 1000
+          ).toFixed(1)}k Follows`}</p>
         </div>
       </div>
       <div className={styles.cardTitle}>

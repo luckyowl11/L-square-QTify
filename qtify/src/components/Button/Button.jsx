@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.css";
 
-function Button({ children, primary, secondary, other, ...props }) {
+function Button({ children, primary, secondary, other, className, ...props }) {
   let variant = "";
 
   if (primary) variant = "primary";
@@ -9,7 +9,9 @@ function Button({ children, primary, secondary, other, ...props }) {
   else variant = "other";
 
   return (
-    <button className={`btn ${variant} ${props.className}`}>{children}</button>
+    <button className={`btn ${variant} ${className}`} {...props}>
+      {children}
+    </button>
   );
 }
 

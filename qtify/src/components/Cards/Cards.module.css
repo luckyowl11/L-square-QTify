@@ -1,11 +1,14 @@
 .card {
   height: 14.5rem;
   width: 10rem;
+  flex: 0 0 10rem;
+  justify-self: center;
 }
 
 .cardContent {
   height: 88%;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .cardImg {

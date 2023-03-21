@@ -15,6 +15,7 @@
 * {
   margin: 0;
 }
+
 html,
 body {
   height: 100%;
@@ -51,4 +52,8 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.main_content {
+  /* padding: 1rem; */
 }
