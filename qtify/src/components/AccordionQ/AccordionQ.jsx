@@ -25,10 +25,18 @@ function AccordionQ({ data }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={styles.typoMui}>{data.heading}</Typography>
+          <Typography
+            className={`${styles.typoMui} ${styles.accorTypoHeading}`}
+          >
+            {data.heading}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails className={styles.accordionContent}>
-          <Typography>{data.content}</Typography>
+          <Typography
+            className={`${styles.typoMui} ${styles.accorTypoContent}`}
+          >
+            {data.content}
+          </Typography>
         </AccordionDetails>
       </CustomizedAccordion>
     </div>

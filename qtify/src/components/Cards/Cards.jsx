@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Cards.module.css";
+import Tooltip from "@mui/material/Tooltip";
 
 function Cards({ cardData, type }) {
   function defaultCard() {
@@ -16,23 +17,25 @@ function Cards({ cardData, type }) {
   return (
     <>
       {type === "albums" && (
-        <div id={cardData.id} className={styles.card}>
-          <div className={styles.cardContent}>
-            <img
-              className={styles.cardImg}
-              src={cardData.image}
-              alt="card_pic"
-            />
-            <div className={styles.albumFollowers}>
-              <p className={styles.aFollo_Text}>{`${(
-                Number(cardData.follows) / 1000
-              ).toFixed(1)}k Follows`}</p>
+        <Tooltip title={`${cardData.songs.length} songs`} placement="top">
+          <div id={cardData.id} className={styles.card}>
+            <div className={styles.cardContent}>
+              <img
+                className={styles.cardImg}
+                src={cardData.image}
+                alt="card_pic"
+              />
+              <div className={styles.albumFollowers}>
+                <p className={styles.aFollo_Text}>{`${(
+                  Number(cardData.follows) / 1000
+                ).toFixed(1)}k Follows`}</p>
+              </div>
+            </div>
+            <div className={styles.cardTitle}>
+              <p>{`${cardData.title}`}</p>
             </div>
           </div>
-          <div className={styles.cardTitle}>
-            <p>{`${cardData.title}`}</p>
-          </div>
-        </div>
+        </Tooltip>
       )}
       {type === "songs" && (
         <div id={cardData.id} className={styles.card}>
