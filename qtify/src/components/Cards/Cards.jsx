@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Cards.module.css";
 import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 function Cards({ cardData, type }) {
   function defaultCard() {
@@ -17,25 +18,27 @@ function Cards({ cardData, type }) {
   return (
     <>
       {type === "albums" && (
-        <Tooltip title={`${cardData.songs.length} songs`} placement="top">
-          <div id={cardData.id} className={styles.card}>
-            <div className={styles.cardContent}>
-              <img
-                className={styles.cardImg}
-                src={cardData.image}
-                alt="card_pic"
-              />
-              <div className={styles.albumFollowers}>
-                <p className={styles.aFollo_Text}>{`${(
-                  Number(cardData.follows) / 1000
-                ).toFixed(1)}k Follows`}</p>
+        <Link to={`/album/${cardData.slug}`} className={styles.cardLink}>
+          <Tooltip title={`${cardData.songs.length} songs`} placement="top">
+            <div id={cardData.id} className={styles.card}>
+              <div className={styles.cardContent}>
+                <img
+                  className={styles.cardImg}
+                  src={cardData.image}
+                  alt="card_pic"
+                />
+                <div className={styles.albumFollowers}>
+                  <p className={styles.aFollo_Text}>{`${(
+                    Number(cardData.follows) / 1000
+                  ).toFixed(1)}k Follows`}</p>
+                </div>
+              </div>
+              <div className={styles.cardTitle}>
+                <p>{`${cardData.title}`}</p>
               </div>
             </div>
-            <div className={styles.cardTitle}>
-              <p>{`${cardData.title}`}</p>
-            </div>
-          </div>
-        </Tooltip>
+          </Tooltip>
+        </Link>
       )}
       {type === "songs" && (
         <div id={cardData.id} className={styles.card}>

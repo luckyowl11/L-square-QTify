@@ -7,6 +7,7 @@ import styles from "./Navbar.module.css";
 import Modal from "../Modal/Modal";
 import InputsField from "../InputField/InputsField";
 import { MdClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function Navbar({ data }) {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,9 @@ function Navbar({ data }) {
 
   return (
     <div className={styles.navbar}>
+      <Link to="/" className={styles.logoHomeLink}>
       <Logo />
+      </Link>
       <SearchBar data={data} />
       <Button
         onClick={handleOpenFeedback}
