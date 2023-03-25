@@ -55,5 +55,8 @@ h6 {
 }
 
 .albums_and_songsSection {
-  
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
