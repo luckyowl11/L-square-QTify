@@ -36,4 +36,4 @@ root.render(
 
 // console.clear();
 // to clear all consoles warnings error anything
-// console.log = console.warn = console.error = () => {};
+console.log = console.warn = console.error = () => {};
