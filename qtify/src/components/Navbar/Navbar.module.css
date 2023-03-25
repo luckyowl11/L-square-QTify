@@ -21,7 +21,7 @@
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.modal_heading {
+.modal_heading.modal_heading {
   position: relative;
   text-align: center;
   font-size: 1rem;
@@ -30,27 +30,27 @@
   margin-bottom: 0.5rem;
 }
 
-.modal_content {
+.modal_content.modal_content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
 }
-.modal {
+.modal.modal {
   height: 33rem;
   width: 33rem;
   padding: 1.125rem 2rem 1.5rem 2rem;
 }
 
-.input_modal {
+.input_modal.input_modal {
   border: 1px solid var(--color-primary);
 }
 
-.input_description {
+.input_description.input_description {
   height: 8.5rem;
 }
-.submit_btnFeedBack {
+.submit_btnFeedBack.submit_btnFeedBack {
   max-width: 12rem;
   width: 100%;
   font-size: 1.125rem;
@@ -58,7 +58,7 @@
   border-radius: 10px;
 }
 
-.close_feedbackX {
+.close_feedbackX.close_feedbackX {
   position: absolute;
   top: 50%;
   right: 0;
