@@ -9,14 +9,6 @@
   padding: 0.62rem 1rem;
 }
 
-.search_bar {
-  display: flex;
-  border-radius: 8px;
-  height: 3rem;
-  max-width: 568px;
-  width: 80%;
-}
-
 .feed_btn {
   padding: 0.625rem;
   border-radius: 12px;
@@ -30,9 +22,3 @@
   border-bottom-left-radius: 8px;
 }
 
-.search-btn {
-  width: 10%;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border: 1px solid var(--color-black);
-}

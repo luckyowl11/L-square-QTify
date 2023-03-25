@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Section from "../Section/Section";
 import axios from "axios";
 
-function SongSectionWrapper({ data }) {
+function SongSectionWrapper({ songs }) {
   const [genres, setGenres] = useState([]);
-  const [songs, setSongs] = useState([]);
+  // const [songs, setSongs] = useState([]);
 
   function filterByType(genre, data) {
     if (genre.key === "all") return false;
@@ -12,15 +12,15 @@ function SongSectionWrapper({ data }) {
     return filteredSongs;
   }
 
-  const fetchAlbums = async () => {
-    try {
-      const songs = await axios.get("https://qtify-backend-labs.crio.do/songs");
+  // const fetchAlbums = async () => {
+  //   try {
+  //     const songs = await axios.get("https://qtify-backend-labs.crio.do/songs");
 
-      setSongs(songs.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     setSongs(songs.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   async function fetchGenre() {
     try {
@@ -35,7 +35,7 @@ function SongSectionWrapper({ data }) {
   }
 
   useEffect(() => {
-    fetchAlbums();
+    // fetchAlbums();
     fetchGenre();
   }, []);
 

@@ -1,0 +1,37 @@
+.player_container {
+  height: 8.125rem;
+  padding: 0 2rem;
+  box-shadow: 0px -2px 6px rgba(255, 255, 255, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.song_image_name {
+  display: flex;
+
+  gap: 1rem;
+  align-items: center;
+}
+.song_image {
+  width: 5.125rem;
+  border-radius: 10px;
+}
+.album_song_name {
+  color: var(--color-white);
+  font-weight: 400;
+}
+.album_name {
+  line-height: 1.5rem;
+}
+.song_name {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+.audio_player_controls {
+}
+.PlayPause {
+  border-radius: 10rem;
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+}

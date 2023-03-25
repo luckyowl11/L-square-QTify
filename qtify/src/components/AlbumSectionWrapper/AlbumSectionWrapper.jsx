@@ -2,29 +2,31 @@ import React, { useState, useEffect } from "react";
 import Section from "../Section/Section";
 import axios from "axios";
 
-function AlbumSectionWrapper() {
-  const [topAlbums, setTopAlbums] = useState([]);
-  const [newAlbums, setNewAlbums] = useState([]);
+function AlbumSectionWrapper({ topAlbums, newAlbums }) {
+  // const [topAlbums, setTopAlbums] = useState([]);
+  // const [newAlbums, setNewAlbums] = useState([]);
 
-  const fetchAlbums = async () => {
-    try {
-      const topAlbums = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/top"
-      );
-      const newAlbums = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/new"
-      );
+  // console.log(data);
 
-      setTopAlbums(topAlbums.data);
-      setNewAlbums(newAlbums.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const fetchAlbums = async () => {
+  //   try {
+  //     const topAlbums = await axios.get(
+  //       "https://qtify-backend-labs.crio.do/albums/top"
+  //     );
+  //     const newAlbums = await axios.get(
+  //       "https://qtify-backend-labs.crio.do/albums/new"
+  //     );
 
-  useEffect(() => {
-    fetchAlbums();
-  }, []);
+  //     setTopAlbums(topAlbums.data);
+  //     setNewAlbums(newAlbums.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchAlbums();
+  // }, []);
 
   return (
     <div>
