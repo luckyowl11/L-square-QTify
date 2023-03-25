@@ -33,3 +33,7 @@ root.render(
     </React.StrictMode>
   </StyledEngineProvider>
 );
+
+// console.clear();
+// to clear all consoles warnings error anything
+console.log = console.warn = console.error = () => {};

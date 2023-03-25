@@ -1,16 +1,32 @@
 import React from "react";
 import Button from "../Button/Button";
-import InputsField from "../InputField/InputsField";
+// import InputsField from "../InputField/InputsField";
 import { FaSearch } from "react-icons/fa";
 import styles from "./SearchBar.module.css";
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import SearchListItem from "./SearchListItem";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar({ data }) {
-  console.log(data, "11111111111111111");
+  // console.log("11111111111111111");
 
-  const albums = data;
+  const navigate = useNavigate();
+  // const albums = data;
+
+  function handleSearchClick(e) {
+    e.preventDefault();
+
+    const searchStr = e.target.elements["search_input"].value;
+    const dt = data.find((album) => {
+      return album.title.toLowerCase().includes(searchStr.toLowerCase());
+    });
+    // console.log(dt);
+    if (dt) {
+      navigate(`/album/${dt.slug}`);
+      e.target.elements["search_input"].value = "";
+    } else console.log(`no Album found with name "${searchStr}"`);
+  }
 
   const {
     getRootProps,
@@ -53,9 +69,14 @@ function SearchBar({ data }) {
 
   return (
     <div className={styles.searchBar_container}>
-      <div className={styles.search_bar} {...getRootProps()}>
+      <form
+        onSubmit={handleSearchClick}
+        className={styles.search_bar}
+        {...getRootProps()}
+      >
         <input
           className={styles.searchInput}
+          name="search_input"
           type="text"
           placeholder={"Search an album of your choice"}
           {...getInputProps()}
@@ -63,7 +84,7 @@ function SearchBar({ data }) {
         <Button other className={styles["search-btn"]}>
           <FaSearch />
         </Button>
-      </div>
+      </form>
 
       {groupedOptions.length > 0 ? (
         <Listbox className={styles.listSeacrh} {...getListboxProps()}>
@@ -79,14 +100,14 @@ function SearchBar({ data }) {
   );
 }
 
-const top100Films = [
-  { title: "The Shawshank Redemption", year: 1994 },
-  { title: "The Godfather", year: 1972 },
-  { title: "The Godfather: Part II", year: 1974 },
-  { title: "The Dark Knight", year: 2008 },
-  { title: "12 Angry Men", year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: "Pulp Fiction", year: 1994 },
-];
+// const top100Films = [
+//   { title: "The Shawshank Redemption", year: 1994 },
+//   { title: "The Godfather", year: 1972 },
+//   { title: "The Godfather: Part II", year: 1974 },
+//   { title: "The Dark Knight", year: 2008 },
+//   { title: "12 Angry Men", year: 1957 },
+//   { title: "Schindler's List", year: 1993 },
+//   { title: "Pulp Fiction", year: 1994 },
+// ];
 
 export default SearchBar;
