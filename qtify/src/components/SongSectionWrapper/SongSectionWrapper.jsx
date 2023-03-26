@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Section from "../Section/Section";
 import axios from "axios";
 
-function SongSectionWrapper({ songs }) {
+function SongSectionWrapper({ songs, song, changeSong }) {
   const [genres, setGenres] = useState([]);
   // const [songs, setSongs] = useState([]);
 
@@ -42,6 +42,7 @@ function SongSectionWrapper({ songs }) {
   return (
     <div>
       <Section
+        changeSong={changeSong}
         data={songs}
         sectionType={"songs"}
         title={"Songs"}

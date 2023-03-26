@@ -3,7 +3,7 @@ import styles from "./Cards.module.css";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 
-function Cards({ cardData, type }) {
+function Cards({ cardData, type, changeSong }) {
   function defaultCard() {
     const cardData = {};
     cardData.img = require("../../assets/CardImageBollySongs.png");
@@ -13,6 +13,11 @@ function Cards({ cardData, type }) {
     cardData.followers = "100";
     return cardData;
   }
+
+  function handleClickSongCard(e) {
+    changeSong(cardData);
+  }
+
   if (!cardData) cardData = defaultCard();
 
   return (
@@ -41,7 +46,11 @@ function Cards({ cardData, type }) {
         </Link>
       )}
       {type === "songs" && (
-        <div id={cardData.id} className={styles.card}>
+        <div
+          onClick={handleClickSongCard}
+          id={cardData.id}
+          className={styles.card}
+        >
           <div className={styles.cardContent}>
             <img
               className={styles.cardImg}

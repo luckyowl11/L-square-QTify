@@ -39,6 +39,7 @@ function AlbumPage() {
   const { albumId } = useParams();
   const [album, setAlbum] = useState({});
   const [page, setPage] = useState(1);
+  const [song, setSong] = useState({});
 
   const navigate = useNavigate();
 
@@ -47,6 +48,7 @@ function AlbumPage() {
       const albumData = await axios.get(
         `https://qtify-backend-labs.crio.do/album/${slug}`
       );
+      console.log(albumData.data, "albumData.data");
       setAlbum(albumData.data);
     } catch (err) {
       console.log(err);
@@ -85,6 +87,10 @@ function AlbumPage() {
   function handleBackClick(e) {
     //
     navigate(-1);
+  }
+
+  function changeSongs(song) {
+    setSong(song);
   }
 
   const songCurrentPage = album.songs
@@ -149,7 +155,12 @@ function AlbumPage() {
                     <>
                       <tr className={styles.song_td_row}>
                         <td className={styles.song_datacol_tabImg}>
-                          <div className={styles.song_title_td}>
+                          <div
+                            onClick={(e) => {
+                              changeSongs(song);
+                            }}
+                            className={styles.song_title_td}
+                          >
                             <div className={styles.song_image}>
                               <img
                                 src={song.image}
@@ -174,7 +185,7 @@ function AlbumPage() {
           </div>
         </div>
       )}
-      <AudioPlayer />
+      <AudioPlayer song={song} album={album.title || "Album Name"} />
     </>
   );
 }

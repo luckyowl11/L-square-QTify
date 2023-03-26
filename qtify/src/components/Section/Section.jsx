@@ -15,7 +15,14 @@ import Tab from "@mui/material/Tab";
 // title => title of section
 // filterFunction => function to filter data
 
-function Section({ data, filtersData, sectionType, title, filterFunction }) {
+function Section({
+  data,
+  filtersData,
+  sectionType,
+  title,
+  filterFunction,
+  changeSong,
+}) {
   const [collapse, setCollapse] = useState(true);
   const [value, setValue] = React.useState(0);
 
@@ -88,9 +95,17 @@ function Section({ data, filtersData, sectionType, title, filterFunction }) {
       )}
 
       {collapse ? (
-        <CardsCarousel data={filteredData || data} cardType={sectionType} />
+        <CardsCarousel
+          data={filteredData || data}
+          cardType={sectionType}
+          changeSong={changeSong}
+        />
       ) : (
-        <CardsGrid data={filteredData || data} cardType={sectionType} />
+        <CardsGrid
+          data={filteredData || data}
+          cardType={sectionType}
+          changeSong={changeSong}
+        />
       )}
     </div>
   );

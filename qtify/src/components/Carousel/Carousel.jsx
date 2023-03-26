@@ -35,7 +35,7 @@ import { useEffect, useState } from "react";
 //   );
 // };
 
-function Carousel({ data, cardType }) {
+function Carousel({ data, cardType, changeSong }) {
   // const navigationPrevRef = useRef(null);
   // const navigationNextRef = useRef(null);
 
@@ -77,7 +77,7 @@ function Carousel({ data, cardType }) {
         {data.map((item) => {
           return (
             <SwiperSlide key={item.id}>
-              <Cards cardData={item} type={cardType} />
+              <Cards changeSong={changeSong} cardData={item} type={cardType} />
             </SwiperSlide>
           );
         })}
