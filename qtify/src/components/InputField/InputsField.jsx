@@ -4,7 +4,11 @@ function InputsField({ placeholder, className, textArea, ...props }) {
   // console.log(props);
   if (textArea) {
     return (
-      <textarea className={`input-field ${className}`} placeholder={placeholder} />
+      <textarea
+        className={`input-field ${className}`}
+        placeholder={placeholder}
+        {...props}
+      />
     );
   }
   return (

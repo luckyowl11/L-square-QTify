@@ -23,7 +23,7 @@ function Navbar({ data }) {
   return (
     <div className={styles.navbar}>
       <Link to="/" className={styles.logoHomeLink}>
-      <Logo />
+        <Logo />
       </Link>
       <SearchBar data={data} />
       <Button
@@ -44,32 +44,39 @@ function Navbar({ data }) {
               <MdClose />
             </Button>
           </h3>
-          <div className={styles.modal_content}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleCloseFeedback(e);
+            }}
+            className={styles.modal_content}
+          >
             <InputsField
               placeholder={"Full Name"}
               className={styles.input_modal}
+              required={true}
             />
             <InputsField
               placeholder={"Email Id"}
+              type="email"
               className={styles.input_modal}
+              required={true}
             />
             <InputsField
               placeholder={"Subject"}
               className={styles.input_modal}
+              required={true}
             />
             <InputsField
               placeholder={"Description"}
               textArea
               className={`${styles.input_modal} ${styles.input_description}`}
+              required={true}
             />
-            <Button
-              className={styles.submit_btnFeedBack}
-              primary
-              onClick={handleCloseFeedback}
-            >
+            <Button className={styles.submit_btnFeedBack} primary>
               Submit Feedback
             </Button>
-          </div>
+          </form>
         </Modal>
       )}
     </div>
